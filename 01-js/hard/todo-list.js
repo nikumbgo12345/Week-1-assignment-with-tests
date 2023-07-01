@@ -13,6 +13,53 @@
 
 class Todo {
 
+    todoArray = [];
+
+    add(todo) {
+
+        this.todoArray.push(todo);
+    }
+
+    remove(index) {
+
+
+        if(index<0 || index >= this.todoArray.length)
+            return
+        this.todoArray.splice(index,1);
+    }
+
+    getAll() {
+        return this.todoArray;
+    }
+
+    update(index, todo) {
+
+        if(index<0 || index >= this.todoArray.length)
+            return
+        this.todoArray[index] = todo;
+    }
+
+    get(index) {
+        if(index<0 || index >= this.todoArray.length)
+            return null
+        return this.todoArray[index];
+    }
+
+    clear() {
+        this.todoArray = [];
+    }
 }
+
+
+let a = new Todo();
+
+a.add("hello1");
+a.add("hello3");
+a.add("hello2");
+console.log(a.getAll())
+a.remove(1);
+a.remove(0);
+a.remove(2);
+console.log(a.getAll())
 
 module.exports = Todo;
